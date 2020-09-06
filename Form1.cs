@@ -36,6 +36,7 @@ namespace PaperPlaneRace
             LoadPlanes();
             LoadPunters();
             LoadPuntersBalance();
+            lblWinner.Visible = false;
         }
 
         private void LoadPlanes()
@@ -189,7 +190,6 @@ namespace PaperPlaneRace
                     if (myPaperPlanes[i].myPictureBox.Left >= finishLine)
                     {
                         pastFinishLine = true;
-                        LoadPuntersBalance();
                         PrintResults(myPaperPlanes[i].planeID);
                         CheckIfWinner(myPunters);
                     }
@@ -234,6 +234,7 @@ namespace PaperPlaneRace
                     {
                         lblWinner.Text = $@"{myPunters[i].punterName} WINS!";
                         lblWinner.Visible = true;
+                        btnResetGame.Enabled = true;
                     }
                 }
             }
@@ -242,6 +243,16 @@ namespace PaperPlaneRace
         private void btnResetGame_Click(object sender, EventArgs e)
         {
             resetPlanePositions();
+            resetBetLog();
+            LoadGame();
+        }
+
+        private void resetBetLog()
+        {
+            for (int i = 0; i < myPunters.Length; i++)
+            {
+                myPunters[i].myTextBoxBet.Text = "";
+            }
         }
 
         private void resetPlanePositions()

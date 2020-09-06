@@ -19,7 +19,14 @@ namespace PaperPlaneRace.Business
                     myPunters[i].punterBetAmount = punterBetAmount;
                     myPunters[i].punterHasBet = true;
 
-                    return $@"{myPunters[i].punterName} has bet {myPunters[i].punterBetAmount} on Plane {myPunters[i].punterBetPlane}";
+                    if (punterBetAmount == 0)
+                    {
+                        return $@"BUSTED";
+                    }
+                    else
+                    {
+                        return $@"{myPunters[i].punterName} has bet {myPunters[i].punterBetAmount} on Plane {myPunters[i].punterBetPlane}";
+                    }
                 }
             }
             return null;

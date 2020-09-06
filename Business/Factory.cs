@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace PaperPlaneRace.Business
 {
-    class Factory
+    public class Factory
     {
         public static Punter GeneratePunter(int id)
         {

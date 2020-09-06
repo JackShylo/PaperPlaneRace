@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace PaperPlaneRace.Business
 {
-    abstract class Punter
+    public abstract class Punter
     {
         public string punterName { get; set; }
         public int punterBalance { get; set; }
